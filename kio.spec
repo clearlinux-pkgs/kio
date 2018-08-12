@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.48.0
-Release  : 1
-URL      : https://download.kde.org/stable/frameworks/5.48/kio-5.48.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.48/kio-5.48.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.48/kio-5.48.0.tar.xz.sig
+Version  : 5.49.0
+Release  : 2
+URL      : https://download.kde.org/stable/frameworks/5.49/kio-5.49.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.49/kio-5.49.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.49/kio-5.49.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -43,9 +43,12 @@ BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
 BuildRequires : kwindowsystem-dev
 BuildRequires : kxmlgui-dev
+BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libxml2-dev
 BuildRequires : libxslt
 BuildRequires : libxslt-dev
+BuildRequires : openssl-dev
+BuildRequires : qtbase-dev qtbase-extras mesa-dev
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
 BuildRequires : zlib-dev
@@ -131,14 +134,14 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.48.0
+%setup -q -n kio-5.49.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532090064
+export SOURCE_DATE_EPOCH=1534112140
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -146,7 +149,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1532090064
+export SOURCE_DATE_EPOCH=1534112140
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kio
 cp COPYING.LIB %{buildroot}/usr/share/doc/kio/COPYING.LIB
@@ -247,7 +250,7 @@ popd
 /usr/share/kservices5/searchproviders/freedb.desktop
 /usr/share/kservices5/searchproviders/fsd.desktop
 /usr/share/kservices5/searchproviders/github.desktop
-/usr/share/kservices5/searchproviders/gitorious.desktop
+/usr/share/kservices5/searchproviders/gitlab.desktop
 /usr/share/kservices5/searchproviders/google.desktop
 /usr/share/kservices5/searchproviders/google_advanced.desktop
 /usr/share/kservices5/searchproviders/google_code.desktop
@@ -273,7 +276,6 @@ popd
 /usr/share/kservices5/searchproviders/kde_apps.desktop
 /usr/share/kservices5/searchproviders/kde_forums.desktop
 /usr/share/kservices5/searchproviders/kde_look.desktop
-/usr/share/kservices5/searchproviders/kde_projects.desktop
 /usr/share/kservices5/searchproviders/kde_techbase.desktop
 /usr/share/kservices5/searchproviders/kde_userbase.desktop
 /usr/share/kservices5/searchproviders/leo.desktop
@@ -932,6 +934,8 @@ popd
 /usr/share/doc/HTML/pt_BR/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/pt_BR/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kioslave5/webdav/index.docbook
+/usr/share/doc/HTML/ru/kcontrol5/proxy/index.cache.bz2
+/usr/share/doc/HTML/ru/kcontrol5/proxy/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/data/index.cache.bz2
 /usr/share/doc/HTML/ru/kioslave5/data/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/file/index.cache.bz2
@@ -1082,15 +1086,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.48.0
+/usr/lib64/libKF5KIOCore.so.5.49.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.48.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.49.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.48.0
+/usr/lib64/libKF5KIOGui.so.5.49.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.48.0
+/usr/lib64/libKF5KIONTLM.so.5.49.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.48.0
+/usr/lib64/libKF5KIOWidgets.so.5.49.0
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
 /usr/lib64/qt5/plugins/kcm_webshortcuts.so
