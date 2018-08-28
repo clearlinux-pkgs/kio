@@ -10,5 +10,6 @@ kwallet-dev
 kwidgetsaddons-dev
 kwindowsystem-dev
 kxmlgui-dev
+qtx11extras-dev
 sonnet-dev
 zlib-dev
