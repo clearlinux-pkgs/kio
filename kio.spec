@@ -6,7 +6,7 @@
 #
 Name     : kio
 Version  : 5.49.0
-Release  : 3
+Release  : 4
 URL      : https://download.kde.org/stable/frameworks/5.49/kio-5.49.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.49/kio-5.49.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.49/kio-5.49.0.tar.xz.sig
@@ -20,9 +20,11 @@ Requires: kio-license
 Requires: kio-locales
 Requires: kio-man
 BuildRequires : acl-dev
+BuildRequires : attr-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : docbook-xml
+BuildRequires : e2fsprogs-dev
 BuildRequires : karchive-dev
 BuildRequires : kbookmarks-dev
 BuildRequires : kcodecs-dev
@@ -37,6 +39,7 @@ BuildRequires : kiconthemes-dev
 BuildRequires : kitemviews-dev
 BuildRequires : kjobwidgets-dev
 BuildRequires : knotifications-dev
+BuildRequires : krb5-dev
 BuildRequires : kservice-dev
 BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
@@ -142,7 +145,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535430069
+export SOURCE_DATE_EPOCH=1535815036
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -150,7 +153,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535430069
+export SOURCE_DATE_EPOCH=1535815036
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kio
 cp COPYING.LIB %{buildroot}/usr/share/doc/kio/COPYING.LIB

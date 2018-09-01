@@ -26,3 +26,6 @@ zlib-dev
 kiconthemes-dev
 kitemviews-dev
 kjobwidgets-dev
+acl-dev
+attr-dev
+krb5-dev
