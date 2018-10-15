@@ -5,20 +5,20 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.50.0
-Release  : 6
-URL      : https://download.kde.org/stable/frameworks/5.50/kio-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/kio-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/kio-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 7
+URL      : https://download.kde.org/stable/frameworks/5.51/kio-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/kio-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/kio-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
-Requires: kio-bin
-Requires: kio-lib
-Requires: kio-data
-Requires: kio-license
-Requires: kio-locales
-Requires: kio-man
+Requires: kio-bin = %{version}-%{release}
+Requires: kio-data = %{version}-%{release}
+Requires: kio-lib = %{version}-%{release}
+Requires: kio-license = %{version}-%{release}
+Requires: kio-locales = %{version}-%{release}
+Requires: kio-man = %{version}-%{release}
 BuildRequires : acl-dev
 BuildRequires : attr-dev
 BuildRequires : buildreq-cmake
@@ -27,7 +27,6 @@ BuildRequires : docbook-xml
 BuildRequires : e2fsprogs-dev
 BuildRequires : karchive-dev
 BuildRequires : kbookmarks-dev
-BuildRequires : kcodecs-dev
 BuildRequires : kcompletion-dev
 BuildRequires : kconfig
 BuildRequires : kconfig-dev
@@ -41,18 +40,15 @@ BuildRequires : kjobwidgets-dev
 BuildRequires : knotifications-dev
 BuildRequires : krb5-dev
 BuildRequires : kservice-dev
-BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : kxmlgui-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libxml2-dev
 BuildRequires : libxslt
 BuildRequires : libxslt-dev
 BuildRequires : openssl-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
-BuildRequires : qtx11extras-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
 BuildRequires : zlib-dev
@@ -66,9 +62,9 @@ http://home.netscape.com/eng/mozilla/2.0/relnotes/demo/proxy-live.html
 %package bin
 Summary: bin components for the kio package.
 Group: Binaries
-Requires: kio-data
-Requires: kio-license
-Requires: kio-man
+Requires: kio-data = %{version}-%{release}
+Requires: kio-license = %{version}-%{release}
+Requires: kio-man = %{version}-%{release}
 
 %description bin
 bin components for the kio package.
@@ -85,10 +81,10 @@ data components for the kio package.
 %package dev
 Summary: dev components for the kio package.
 Group: Development
-Requires: kio-lib
-Requires: kio-bin
-Requires: kio-data
-Provides: kio-devel
+Requires: kio-lib = %{version}-%{release}
+Requires: kio-bin = %{version}-%{release}
+Requires: kio-data = %{version}-%{release}
+Provides: kio-devel = %{version}-%{release}
 
 %description dev
 dev components for the kio package.
@@ -97,7 +93,7 @@ dev components for the kio package.
 %package doc
 Summary: doc components for the kio package.
 Group: Documentation
-Requires: kio-man
+Requires: kio-man = %{version}-%{release}
 
 %description doc
 doc components for the kio package.
@@ -106,8 +102,8 @@ doc components for the kio package.
 %package lib
 Summary: lib components for the kio package.
 Group: Libraries
-Requires: kio-data
-Requires: kio-license
+Requires: kio-data = %{version}-%{release}
+Requires: kio-license = %{version}-%{release}
 
 %description lib
 lib components for the kio package.
@@ -138,25 +134,25 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.50.0
+%setup -q -n kio-5.51.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536433996
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539632740
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536433996
+export SOURCE_DATE_EPOCH=1539632740
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kio
-cp COPYING.LIB %{buildroot}/usr/share/doc/kio/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/kio
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -1093,15 +1089,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.50.0
+/usr/lib64/libKF5KIOCore.so.5.51.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.50.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.51.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.50.0
+/usr/lib64/libKF5KIOGui.so.5.51.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.50.0
+/usr/lib64/libKF5KIONTLM.so.5.51.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.50.0
+/usr/lib64/libKF5KIOWidgets.so.5.51.0
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
 /usr/lib64/qt5/plugins/kcm_webshortcuts.so
@@ -1125,11 +1121,11 @@ popd
 /usr/lib64/qt5/plugins/kf5/urifilters/localdomainurifilter.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kio/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kio/COPYING.LIB
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/ca/man8/kcookiejar5.8
 /usr/share/man/de/man8/kcookiejar5.8
 /usr/share/man/es/man8/kcookiejar5.8
