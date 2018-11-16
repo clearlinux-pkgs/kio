@@ -6,7 +6,7 @@
 #
 Name     : kio
 Version  : 5.52.0
-Release  : 9
+Release  : 10
 URL      : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz.sig
