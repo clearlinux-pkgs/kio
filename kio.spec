@@ -6,7 +6,7 @@
 #
 Name     : kio
 Version  : 5.52.0
-Release  : 11
+Release  : 12
 URL      : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz.sig
@@ -62,14 +62,6 @@ Proxy Auto Configuration is a means to use a JavaScript function to
 determine the proxy to use based on the requested URL.
 It is described in detail here:
 http://home.netscape.com/eng/mozilla/2.0/relnotes/demo/proxy-live.html
-
-%package abi
-Summary: abi components for the kio package.
-Group: Default
-
-%description abi
-abi components for the kio package.
-
 
 %package bin
 Summary: bin components for the kio package.
@@ -153,7 +145,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542400320
+export SOURCE_DATE_EPOCH=1542742684
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -161,7 +153,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1542400320
+export SOURCE_DATE_EPOCH=1542742684
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/COPYING.LIB
@@ -177,14 +169,6 @@ popd
 /usr/lib64/libexec/kf5/kioexec
 /usr/lib64/libexec/kf5/kioslave
 /usr/lib64/libexec/kf5/kpac_dhcp_helper
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libKF5KIOCore.so.5.abi
-/usr/share/abi/libKF5KIOFileWidgets.so.5.abi
-/usr/share/abi/libKF5KIOGui.so.5.abi
-/usr/share/abi/libKF5KIONTLM.so.5.abi
-/usr/share/abi/libKF5KIOWidgets.so.5.abi
 
 %files bin
 %defattr(-,root,root,-)
