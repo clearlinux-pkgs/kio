@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.52.0
-Release  : 12
-URL      : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.52/kio-5.52.0.tar.xz.sig
+Version  : 5.53.0
+Release  : 13
+URL      : https://download.kde.org/stable/frameworks/5.53/kio-5.53.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.53/kio-5.53.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.53/kio-5.53.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -27,7 +27,6 @@ BuildRequires : docbook-xml
 BuildRequires : e2fsprogs-dev
 BuildRequires : karchive-dev
 BuildRequires : kbookmarks-dev
-BuildRequires : kcodecs-dev
 BuildRequires : kcompletion-dev
 BuildRequires : kconfig
 BuildRequires : kconfig-dev
@@ -41,10 +40,8 @@ BuildRequires : kjobwidgets-dev
 BuildRequires : knotifications-dev
 BuildRequires : krb5-dev
 BuildRequires : kservice-dev
-BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : kxmlgui-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libxml2-dev
@@ -52,7 +49,6 @@ BuildRequires : libxslt
 BuildRequires : libxslt-dev
 BuildRequires : openssl-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : qtx11extras-dev
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
 BuildRequires : zlib-dev
@@ -138,22 +134,22 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.52.0
+%setup -q -n kio-5.53.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542742684
+export SOURCE_DATE_EPOCH=1544539045
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1542742684
+export SOURCE_DATE_EPOCH=1544539045
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/COPYING.LIB
@@ -230,7 +226,6 @@ popd
 /usr/share/kservices5/searchproviders/de2fr.desktop
 /usr/share/kservices5/searchproviders/deb.desktop
 /usr/share/kservices5/searchproviders/dictfr.desktop
-/usr/share/kservices5/searchproviders/dmoz.desktop
 /usr/share/kservices5/searchproviders/docbook.desktop
 /usr/share/kservices5/searchproviders/doi.desktop
 /usr/share/kservices5/searchproviders/duckduckgo.desktop
@@ -242,7 +237,6 @@ popd
 /usr/share/kservices5/searchproviders/en2fr.desktop
 /usr/share/kservices5/searchproviders/en2it.desktop
 /usr/share/kservices5/searchproviders/es2en.desktop
-/usr/share/kservices5/searchproviders/ethicle.desktop
 /usr/share/kservices5/searchproviders/facebook.desktop
 /usr/share/kservices5/searchproviders/feedster.desktop
 /usr/share/kservices5/searchproviders/flickr.desktop
@@ -268,7 +262,6 @@ popd
 /usr/share/kservices5/searchproviders/grec.desktop
 /usr/share/kservices5/searchproviders/hyperdictionary.desktop
 /usr/share/kservices5/searchproviders/hyperdictionary_thesaurus.desktop
-/usr/share/kservices5/searchproviders/ibl.desktop
 /usr/share/kservices5/searchproviders/identica_groups.desktop
 /usr/share/kservices5/searchproviders/identica_notices.desktop
 /usr/share/kservices5/searchproviders/identica_people.desktop
@@ -522,6 +515,7 @@ popd
 /usr/include/KF5/KIOFileWidgets/KEncodingFileDialog
 /usr/include/KF5/KIOFileWidgets/KFileCopyToMenu
 /usr/include/KF5/KIOFileWidgets/KFileFilterCombo
+/usr/include/KF5/KIOFileWidgets/KFilePlaceEditDialog
 /usr/include/KF5/KIOFileWidgets/KFilePlacesModel
 /usr/include/KF5/KIOFileWidgets/KFilePlacesView
 /usr/include/KF5/KIOFileWidgets/KFilePreviewGenerator
@@ -539,6 +533,7 @@ popd
 /usr/include/KF5/KIOFileWidgets/kencodingfiledialog.h
 /usr/include/KF5/KIOFileWidgets/kfilecopytomenu.h
 /usr/include/KF5/KIOFileWidgets/kfilefiltercombo.h
+/usr/include/KF5/KIOFileWidgets/kfileplaceeditdialog.h
 /usr/include/KF5/KIOFileWidgets/kfileplacesmodel.h
 /usr/include/KF5/KIOFileWidgets/kfileplacesview.h
 /usr/include/KF5/KIOFileWidgets/kfilepreviewgenerator.h
@@ -1093,15 +1088,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.52.0
+/usr/lib64/libKF5KIOCore.so.5.53.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.52.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.53.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.52.0
+/usr/lib64/libKF5KIOGui.so.5.53.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.52.0
+/usr/lib64/libKF5KIONTLM.so.5.53.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.52.0
+/usr/lib64/libKF5KIOWidgets.so.5.53.0
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
 /usr/lib64/qt5/plugins/kcm_webshortcuts.so
