@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.55.0
-Release  : 17
-URL      : https://download.kde.org/stable/frameworks/5.55/kio-5.55.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.55/kio-5.55.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.55/kio-5.55.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.56.0
+Release  : 18
+URL      : https://download.kde.org/stable/frameworks/5.56/kio-5.56.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.56/kio-5.56.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.56/kio-5.56.0.tar.xz.sig
+Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: kio-bin = %{version}-%{release}
@@ -47,7 +47,6 @@ BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev lib
 BuildRequires : libxml2-dev
 BuildRequires : libxslt
 BuildRequires : libxslt-dev
-BuildRequires : openssl-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
@@ -64,7 +63,6 @@ Summary: bin components for the kio package.
 Group: Binaries
 Requires: kio-data = %{version}-%{release}
 Requires: kio-license = %{version}-%{release}
-Requires: kio-man = %{version}-%{release}
 
 %description bin
 bin components for the kio package.
@@ -85,6 +83,7 @@ Requires: kio-lib = %{version}-%{release}
 Requires: kio-bin = %{version}-%{release}
 Requires: kio-data = %{version}-%{release}
 Provides: kio-devel = %{version}-%{release}
+Requires: kio = %{version}-%{release}
 
 %description dev
 dev components for the kio package.
@@ -134,22 +133,23 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.55.0
+%setup -q -n kio-5.56.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549761125
+export SOURCE_DATE_EPOCH=1552168011
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549761125
+export SOURCE_DATE_EPOCH=1552168011
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/COPYING.LIB
@@ -1088,15 +1088,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.55.0
+/usr/lib64/libKF5KIOCore.so.5.56.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.55.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.56.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.55.0
+/usr/lib64/libKF5KIOGui.so.5.56.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.55.0
+/usr/lib64/libKF5KIONTLM.so.5.56.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.55.0
+/usr/lib64/libKF5KIOWidgets.so.5.56.0
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
 /usr/lib64/qt5/plugins/kcm_webshortcuts.so
