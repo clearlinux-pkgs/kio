@@ -6,7 +6,7 @@
 #
 Name     : kio
 Version  : 5.57.0
-Release  : 19
+Release  : 20
 URL      : https://download.kde.org/stable/frameworks/5.57/kio-5.57.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.57/kio-5.57.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.57/kio-5.57.0.tar.xz.sig
@@ -27,6 +27,7 @@ BuildRequires : docbook-xml
 BuildRequires : e2fsprogs-dev
 BuildRequires : karchive-dev
 BuildRequires : kbookmarks-dev
+BuildRequires : kcodecs-dev
 BuildRequires : kcompletion-dev
 BuildRequires : kconfig
 BuildRequires : kconfig-dev
@@ -40,14 +41,17 @@ BuildRequires : kjobwidgets-dev
 BuildRequires : knotifications-dev
 BuildRequires : krb5-dev
 BuildRequires : kservice-dev
+BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : kxmlgui-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libxml2-dev
 BuildRequires : libxslt
 BuildRequires : libxslt-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtx11extras-dev
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
 BuildRequires : zlib-dev
@@ -140,7 +144,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555196706
+export SOURCE_DATE_EPOCH=1555334492
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -148,7 +152,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555196706
+export SOURCE_DATE_EPOCH=1555334492
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/COPYING.LIB
