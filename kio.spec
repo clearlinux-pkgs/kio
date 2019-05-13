@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.57.0
-Release  : 21
-URL      : https://download.kde.org/stable/frameworks/5.57/kio-5.57.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.57/kio-5.57.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.57/kio-5.57.0.tar.xz.sig
+Version  : 5.58.0
+Release  : 22
+URL      : https://download.kde.org/stable/frameworks/5.58/kio-5.58.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.58/kio-5.58.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.58/kio-5.58.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -27,7 +27,6 @@ BuildRequires : docbook-xml
 BuildRequires : e2fsprogs-dev
 BuildRequires : karchive-dev
 BuildRequires : kbookmarks-dev
-BuildRequires : kcodecs-dev
 BuildRequires : kcompletion-dev
 BuildRequires : kconfig
 BuildRequires : kconfig-dev
@@ -41,17 +40,14 @@ BuildRequires : kjobwidgets-dev
 BuildRequires : knotifications-dev
 BuildRequires : krb5-dev
 BuildRequires : kservice-dev
-BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : kxmlgui-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libxml2-dev
 BuildRequires : libxslt
 BuildRequires : libxslt-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : qtx11extras-dev
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
 BuildRequires : zlib-dev
@@ -87,6 +83,7 @@ Requires: kio-lib = %{version}-%{release}
 Requires: kio-bin = %{version}-%{release}
 Requires: kio-data = %{version}-%{release}
 Provides: kio-devel = %{version}-%{release}
+Requires: kio = %{version}-%{release}
 Requires: kio = %{version}-%{release}
 
 %description dev
@@ -137,14 +134,14 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.57.0
+%setup -q -n kio-5.58.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557018630
+export SOURCE_DATE_EPOCH=1557791676
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -159,7 +156,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557018630
+export SOURCE_DATE_EPOCH=1557791676
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/COPYING.LIB
@@ -946,6 +943,8 @@ popd
 /usr/share/doc/HTML/pt_BR/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/pt_BR/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kioslave5/webdav/index.docbook
+/usr/share/doc/HTML/ru/kcontrol5/cookies/index.cache.bz2
+/usr/share/doc/HTML/ru/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/ru/kcontrol5/proxy/index.cache.bz2
 /usr/share/doc/HTML/ru/kcontrol5/proxy/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/data/index.cache.bz2
@@ -1098,15 +1097,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.57.0
+/usr/lib64/libKF5KIOCore.so.5.58.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.57.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.58.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.57.0
+/usr/lib64/libKF5KIOGui.so.5.58.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.57.0
+/usr/lib64/libKF5KIONTLM.so.5.58.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.57.0
+/usr/lib64/libKF5KIOWidgets.so.5.58.0
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
 /usr/lib64/qt5/plugins/kcm_webshortcuts.so
