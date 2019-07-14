@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.59.0
-Release  : 23
-URL      : https://download.kde.org/stable/frameworks/5.59/kio-5.59.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.59/kio-5.59.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.59/kio-5.59.0.tar.xz.sig
+Version  : 5.60.0
+Release  : 24
+URL      : https://download.kde.org/stable/frameworks/5.60/kio-5.60.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.60/kio-5.60.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.60/kio-5.60.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -134,16 +134,17 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.59.0
+%setup -q -n kio-5.60.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1560032078
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1563067477
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -152,11 +153,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1560032078
+export SOURCE_DATE_EPOCH=1563067477
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/COPYING.LIB
@@ -386,8 +387,8 @@ popd
 /usr/share/kservicetypes5/kurifilterplugin.desktop
 /usr/share/kservicetypes5/searchprovider.desktop
 /usr/share/kservicetypes5/uasprovider.desktop
+/usr/share/qlogging-categories5/kio.categories
 /usr/share/xdg/accept-languages.codes
-/usr/share/xdg/kio.categories
 /usr/share/xdg/kshorturifilterrc
 
 %files dev
@@ -521,6 +522,7 @@ popd
 /usr/include/KF5/KIOFileWidgets/KDirSortFilterProxyModel
 /usr/include/KF5/KIOFileWidgets/KEncodingFileDialog
 /usr/include/KF5/KIOFileWidgets/KFileCopyToMenu
+/usr/include/KF5/KIOFileWidgets/KFileCustomDialog
 /usr/include/KF5/KIOFileWidgets/KFileFilterCombo
 /usr/include/KF5/KIOFileWidgets/KFilePlaceEditDialog
 /usr/include/KF5/KIOFileWidgets/KFilePlacesModel
@@ -539,6 +541,7 @@ popd
 /usr/include/KF5/KIOFileWidgets/kdirsortfilterproxymodel.h
 /usr/include/KF5/KIOFileWidgets/kencodingfiledialog.h
 /usr/include/KF5/KIOFileWidgets/kfilecopytomenu.h
+/usr/include/KF5/KIOFileWidgets/kfilecustomdialog.h
 /usr/include/KF5/KIOFileWidgets/kfilefiltercombo.h
 /usr/include/KF5/KIOFileWidgets/kfileplaceeditdialog.h
 /usr/include/KF5/KIOFileWidgets/kfileplacesmodel.h
@@ -1097,15 +1100,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.59.0
+/usr/lib64/libKF5KIOCore.so.5.60.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.59.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.60.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.59.0
+/usr/lib64/libKF5KIOGui.so.5.60.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.59.0
+/usr/lib64/libKF5KIONTLM.so.5.60.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.59.0
+/usr/lib64/libKF5KIOWidgets.so.5.60.0
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
 /usr/lib64/qt5/plugins/kcm_webshortcuts.so
