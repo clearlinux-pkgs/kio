@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.62.1
-Release  : 26
-URL      : https://download.kde.org/stable/frameworks/5.62/kio-5.62.1.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.62/kio-5.62.1.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.62/kio-5.62.1.tar.xz.sig
+Version  : 5.63.0
+Release  : 27
+URL      : https://download.kde.org/stable/frameworks/5.63/kio-5.63.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.63/kio-5.63.0.tar.xz
+Source1 : https://download.kde.org/stable/frameworks/5.63/kio-5.63.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -134,14 +134,14 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.62.1
+%setup -q -n kio-5.63.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568928566
+export SOURCE_DATE_EPOCH=1570981886
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -158,7 +158,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1568928566
+export SOURCE_DATE_EPOCH=1570981886
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/COPYING.LIB
@@ -451,6 +451,7 @@ popd
 /usr/include/KF5/KIOCore/KSambaShare
 /usr/include/KF5/KIOCore/KSambaShareData
 /usr/include/KF5/KIOCore/KSslCertificateManager
+/usr/include/KF5/KIOCore/KSslErrorUiData
 /usr/include/KF5/KIOCore/KTcpSocket
 /usr/include/KF5/KIOCore/KUrlAuthorized
 /usr/include/KF5/KIOCore/kacl.h
@@ -515,6 +516,7 @@ popd
 /usr/include/KF5/KIOCore/ksambasharedata.h
 /usr/include/KF5/KIOCore/ksslcertificatemanager.h
 /usr/include/KF5/KIOCore/ksslcertificatemanager_p.h
+/usr/include/KF5/KIOCore/ksslerroruidata.h
 /usr/include/KF5/KIOCore/ksslsettings.h
 /usr/include/KF5/KIOCore/ktcpsocket.h
 /usr/include/KF5/KIOCore/kurlauthorized.h
@@ -1101,15 +1103,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.62.0
+/usr/lib64/libKF5KIOCore.so.5.63.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.62.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.63.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.62.0
+/usr/lib64/libKF5KIOGui.so.5.63.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.62.0
+/usr/lib64/libKF5KIONTLM.so.5.63.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.62.0
+/usr/lib64/libKF5KIOWidgets.so.5.63.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
