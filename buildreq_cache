@@ -1,4 +1,4 @@
-5.63.0
+5.64.0
 e2fsprogs-dev
 kcodecs-dev
 kcompletion-dev
@@ -12,5 +12,6 @@ kwidgetsaddons-dev
 kwindowsystem-dev
 kxmlgui-dev
 qtx11extras-dev
+ruby
 sonnet-dev
 zlib-dev
