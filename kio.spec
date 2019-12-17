@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.64.0
-Release  : 28
-URL      : https://download.kde.org/stable/frameworks/5.64/kio-5.64.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.64/kio-5.64.0.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.64/kio-5.64.0.tar.xz.sig
+Version  : 5.65.0
+Release  : 29
+URL      : https://download.kde.org/stable/frameworks/5.65/kio-5.65.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.65/kio-5.65.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.65/kio-5.65.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -85,7 +85,6 @@ Requires: kio-bin = %{version}-%{release}
 Requires: kio-data = %{version}-%{release}
 Provides: kio-devel = %{version}-%{release}
 Requires: kio = %{version}-%{release}
-Requires: kio = %{version}-%{release}
 
 %description dev
 dev components for the kio package.
@@ -135,17 +134,17 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.64.0
+%setup -q -n kio-5.65.0
+cd %{_builddir}/kio-5.65.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573404833
+export SOURCE_DATE_EPOCH=1576540757
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -159,10 +158,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1573404833
+export SOURCE_DATE_EPOCH=1576540757
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
-cp %{_builddir}/kio-5.64.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kio-5.65.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -1104,15 +1103,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.64.0
+/usr/lib64/libKF5KIOCore.so.5.65.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.64.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.65.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.64.0
+/usr/lib64/libKF5KIOGui.so.5.65.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.64.0
+/usr/lib64/libKF5KIONTLM.so.5.65.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.64.0
+/usr/lib64/libKF5KIOWidgets.so.5.65.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
