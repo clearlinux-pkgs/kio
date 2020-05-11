@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.69.0
-Release  : 33
-URL      : https://download.kde.org/stable/frameworks/5.69/kio-5.69.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.69/kio-5.69.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.69/kio-5.69.0.tar.xz.sig
+Version  : 5.70.0
+Release  : 34
+URL      : https://download.kde.org/stable/frameworks/5.70/kio-5.70.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.70/kio-5.70.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.70/kio-5.70.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -25,12 +25,16 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : docbook-xml
 BuildRequires : e2fsprogs-dev
+BuildRequires : extra-cmake-modules-data
 BuildRequires : karchive-dev
+BuildRequires : kauth-dev
 BuildRequires : kbookmarks-dev
 BuildRequires : kcompletion-dev
 BuildRequires : kconfig
 BuildRequires : kconfig-dev
+BuildRequires : kconfigwidgets-dev
 BuildRequires : kcoreaddons-dev
+BuildRequires : kcrash-dev
 BuildRequires : kdbusaddons-dev
 BuildRequires : kdoctools-dev
 BuildRequires : ki18n-dev
@@ -40,24 +44,26 @@ BuildRequires : kjobwidgets-dev
 BuildRequires : knotifications-dev
 BuildRequires : krb5-dev
 BuildRequires : kservice-dev
+BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : kxmlgui-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : libxml2-dev
 BuildRequires : libxslt
 BuildRequires : libxslt-dev
+BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtdeclarative-dev
 BuildRequires : ruby
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
 BuildRequires : zlib-dev
 
 %description
-Proxy Auto Configuration is a means to use a JavaScript function to
-determine the proxy to use based on the requested URL.
-It is described in detail here:
-http://home.netscape.com/eng/mozilla/2.0/relnotes/demo/proxy-live.html
+kioexec is launched when the user wants to open a remote file with
+an application that only supports local files.
 
 %package bin
 Summary: bin components for the kio package.
@@ -84,7 +90,6 @@ Requires: kio-lib = %{version}-%{release}
 Requires: kio-bin = %{version}-%{release}
 Requires: kio-data = %{version}-%{release}
 Provides: kio-devel = %{version}-%{release}
-Requires: kio = %{version}-%{release}
 Requires: kio = %{version}-%{release}
 
 %description dev
@@ -135,35 +140,34 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.69.0
-cd %{_builddir}/kio-5.69.0
+%setup -q -n kio-5.70.0
+cd %{_builddir}/kio-5.70.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1586900852
+export SOURCE_DATE_EPOCH=1589228157
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1586900852
+export SOURCE_DATE_EPOCH=1589228157
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
-cp %{_builddir}/kio-5.69.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kio-5.70.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kio/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -819,6 +823,18 @@ popd
 /usr/share/doc/HTML/et/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/et/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/et/kioslave5/webdav/index.docbook
+/usr/share/doc/HTML/fr/kioslave5/file/index.cache.bz2
+/usr/share/doc/HTML/fr/kioslave5/file/index.docbook
+/usr/share/doc/HTML/fr/kioslave5/ftp/index.cache.bz2
+/usr/share/doc/HTML/fr/kioslave5/ftp/index.docbook
+/usr/share/doc/HTML/fr/kioslave5/help/index.cache.bz2
+/usr/share/doc/HTML/fr/kioslave5/help/index.docbook
+/usr/share/doc/HTML/fr/kioslave5/http/index.cache.bz2
+/usr/share/doc/HTML/fr/kioslave5/http/index.docbook
+/usr/share/doc/HTML/fr/kioslave5/telnet/index.cache.bz2
+/usr/share/doc/HTML/fr/kioslave5/telnet/index.docbook
+/usr/share/doc/HTML/fr/kioslave5/webdav/index.cache.bz2
+/usr/share/doc/HTML/fr/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/it/kcontrol5/cache/index.cache.bz2
 /usr/share/doc/HTML/it/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/it/kcontrol5/cookies/index.cache.bz2
@@ -1111,15 +1127,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.69.0
+/usr/lib64/libKF5KIOCore.so.5.70.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.69.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.70.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.69.0
+/usr/lib64/libKF5KIOGui.so.5.70.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.69.0
+/usr/lib64/libKF5KIONTLM.so.5.70.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.69.0
+/usr/lib64/libKF5KIOWidgets.so.5.70.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
