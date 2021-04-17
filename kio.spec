@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.78.0
-Release  : 43
-URL      : https://download.kde.org/stable/frameworks/5.78/kio-5.78.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.78/kio-5.78.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.78/kio-5.78.0.tar.xz.sig
+Version  : 5.81.0
+Release  : 44
+URL      : https://download.kde.org/stable/frameworks/5.81/kio-5.81.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.81/kio-5.81.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.81/kio-5.81.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -141,15 +141,15 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.78.0
-cd %{_builddir}/kio-5.78.0
+%setup -q -n kio-5.81.0
+cd %{_builddir}/kio-5.81.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611179215
+export SOURCE_DATE_EPOCH=1618623937
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -165,24 +165,25 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1611179215
+export SOURCE_DATE_EPOCH=1618623937
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
-cp %{_builddir}/kio-5.78.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/kio-5.78.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kio/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kio-5.78.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/kio-5.78.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/kio-5.78.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/kio-5.78.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kio-5.78.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kio-5.78.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kio/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kio-5.78.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
-cp %{_builddir}/kio-5.78.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kio-5.78.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kio-5.78.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kio-5.78.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kio-5.78.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kio-5.78.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/kio-5.81.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/kio-5.81.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kio/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kio-5.81.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/kio-5.81.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kio-5.81.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/kio-5.81.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kio-5.81.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kio-5.81.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kio/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kio-5.81.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kio-5.81.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kio-5.81.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/kio-5.81.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/kio-5.81.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kio-5.81.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kio-5.81.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/kio-5.81.0/templates/ioslave/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
 pushd clr-build
 %make_install
 popd
@@ -217,6 +218,7 @@ popd
 /usr/share/dbus-1/services/org.kde.kpasswdserver.service
 /usr/share/dbus-1/services/org.kde.kssld5.service
 /usr/share/kconf_update/filepicker.upd
+/usr/share/kdevappwizard/templates/ioslave.tar.bz2
 /usr/share/kf5/kcookiejar/domain_info
 /usr/share/knotifications5/proxyscout.notifyrc
 /usr/share/kservices5/cache.desktop
@@ -224,6 +226,7 @@ popd
 /usr/share/kservices5/data.protocol
 /usr/share/kservices5/http_cache_cleaner.desktop
 /usr/share/kservices5/kcmtrash.desktop
+/usr/share/kservices5/mailto.protocol
 /usr/share/kservices5/mms.protocol
 /usr/share/kservices5/mmst.protocol
 /usr/share/kservices5/mmsu.protocol
@@ -447,6 +450,7 @@ popd
 /usr/include/KF5/KIOCore/KIO/JobUiDelegateFactory
 /usr/include/KF5/KIOCore/KIO/ListJob
 /usr/include/KF5/KIOCore/KIO/MetaData
+/usr/include/KF5/KIOCore/KIO/MimeTypeFinderJob
 /usr/include/KF5/KIOCore/KIO/MimetypeJob
 /usr/include/KF5/KIOCore/KIO/MkdirJob
 /usr/include/KF5/KIOCore/KIO/MkpathJob
@@ -513,6 +517,7 @@ popd
 /usr/include/KF5/KIOCore/kio/jobuidelegatefactory.h
 /usr/include/KF5/KIOCore/kio/listjob.h
 /usr/include/KF5/KIOCore/kio/metadata.h
+/usr/include/KF5/KIOCore/kio/mimetypefinderjob.h
 /usr/include/KF5/KIOCore/kio/mimetypejob.h
 /usr/include/KF5/KIOCore/kio/mkdirjob.h
 /usr/include/KF5/KIOCore/kio/mkpathjob.h
@@ -620,6 +625,7 @@ popd
 /usr/include/KF5/KIOWidgets/KIO/SkipDialog
 /usr/include/KF5/KIOWidgets/KIO/SslUi
 /usr/include/KF5/KIOWidgets/KIO/ThumbCreator
+/usr/include/KF5/KIOWidgets/KIO/ThumbDevicePixelRatioDependentCreator
 /usr/include/KF5/KIOWidgets/KIO/ThumbSequenceCreator
 /usr/include/KF5/KIOWidgets/KOpenWithDialog
 /usr/include/KF5/KIOWidgets/KOverlayIconPlugin
@@ -659,6 +665,7 @@ popd
 /usr/include/KF5/KIOWidgets/kio/skipdialog.h
 /usr/include/KF5/KIOWidgets/kio/sslui.h
 /usr/include/KF5/KIOWidgets/kio/thumbcreator.h
+/usr/include/KF5/KIOWidgets/kio/thumbdevicepixelratiodependentcreator.h
 /usr/include/KF5/KIOWidgets/kio/thumbsequencecreator.h
 /usr/include/KF5/KIOWidgets/kiowidgets_export.h
 /usr/include/KF5/KIOWidgets/kopenwithdialog.h
@@ -1030,8 +1037,12 @@ popd
 /usr/share/doc/HTML/pt_BR/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/ru/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/ru/kcontrol5/cookies/index.docbook
+/usr/share/doc/HTML/ru/kcontrol5/netpref/index.cache.bz2
+/usr/share/doc/HTML/ru/kcontrol5/netpref/index.docbook
 /usr/share/doc/HTML/ru/kcontrol5/proxy/index.cache.bz2
 /usr/share/doc/HTML/ru/kcontrol5/proxy/index.docbook
+/usr/share/doc/HTML/ru/kcontrol5/trash/index.cache.bz2
+/usr/share/doc/HTML/ru/kcontrol5/trash/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/data/index.cache.bz2
 /usr/share/doc/HTML/ru/kioslave5/data/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/file/index.cache.bz2
@@ -1042,6 +1053,8 @@ popd
 /usr/share/doc/HTML/ru/kioslave5/help/documentationnotfound/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/help/index.cache.bz2
 /usr/share/doc/HTML/ru/kioslave5/help/index.docbook
+/usr/share/doc/HTML/ru/kioslave5/http/index.cache.bz2
+/usr/share/doc/HTML/ru/kioslave5/http/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/telnet/index.cache.bz2
 /usr/share/doc/HTML/ru/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/webdav/index.cache.bz2
@@ -1182,15 +1195,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.78.0
+/usr/lib64/libKF5KIOCore.so.5.81.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.78.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.81.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.78.0
+/usr/lib64/libKF5KIOGui.so.5.81.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.78.0
+/usr/lib64/libKF5KIONTLM.so.5.81.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.78.0
+/usr/lib64/libKF5KIOWidgets.so.5.81.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
