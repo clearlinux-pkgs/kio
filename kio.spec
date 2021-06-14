@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.82.0
-Release  : 45
-URL      : https://download.kde.org/stable/frameworks/5.82/kio-5.82.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.82/kio-5.82.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.82/kio-5.82.0.tar.xz.sig
+Version  : 5.83.0
+Release  : 46
+URL      : https://download.kde.org/stable/frameworks/5.83/kio-5.83.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.83/kio-5.83.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.83/kio-5.83.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -142,15 +142,15 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.82.0
-cd %{_builddir}/kio-5.82.0
+%setup -q -n kio-5.83.0
+cd %{_builddir}/kio-5.83.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623264590
+export SOURCE_DATE_EPOCH=1623647891
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -166,25 +166,25 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623264590
+export SOURCE_DATE_EPOCH=1623647891
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
-cp %{_builddir}/kio-5.82.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/kio-5.82.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kio/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kio-5.82.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/kio-5.82.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/kio-5.82.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/kio-5.82.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kio-5.82.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kio-5.82.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kio/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kio-5.82.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
-cp %{_builddir}/kio-5.82.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kio-5.82.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kio-5.82.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kio-5.82.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kio-5.82.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kio-5.82.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
-cp %{_builddir}/kio-5.82.0/templates/ioslave/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kio-5.83.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/kio-5.83.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kio/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kio-5.83.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/kio-5.83.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kio-5.83.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/kio-5.83.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kio-5.83.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kio-5.83.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kio/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kio-5.83.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kio-5.83.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kio-5.83.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/kio-5.83.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/kio-5.83.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kio-5.83.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kio-5.83.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/kio-5.83.0/templates/ioslave/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
 pushd clr-build
 %make_install
 popd
@@ -222,7 +222,6 @@ popd
 /usr/share/kdevappwizard/templates/ioslave.tar.bz2
 /usr/share/kf5/kcookiejar/domain_info
 /usr/share/knotifications5/proxyscout.notifyrc
-/usr/share/kservices5/cache.desktop
 /usr/share/kservices5/cookies.desktop
 /usr/share/kservices5/data.protocol
 /usr/share/kservices5/http_cache_cleaner.desktop
@@ -363,49 +362,6 @@ popd
 /usr/share/kservices5/searchproviders/yahoo_video.desktop
 /usr/share/kservices5/searchproviders/youtube.desktop
 /usr/share/kservices5/smb.desktop
-/usr/share/kservices5/useragent.desktop
-/usr/share/kservices5/useragentstrings/android10.desktop
-/usr/share/kservices5/useragentstrings/chrome10onwinnt51.desktop
-/usr/share/kservices5/useragentstrings/chrome22oncurrent.desktop
-/usr/share/kservices5/useragentstrings/chrome23oncurrent.desktop
-/usr/share/kservices5/useragentstrings/chrome24oncurrent.desktop
-/usr/share/kservices5/useragentstrings/chrome50oncurrent.desktop
-/usr/share/kservices5/useragentstrings/chrome570oncurrent.desktop
-/usr/share/kservices5/useragentstrings/firefox15oncurrent.desktop
-/usr/share/kservices5/useragentstrings/firefox16oncurrent.desktop
-/usr/share/kservices5/useragentstrings/firefox20oncurrent.desktop
-/usr/share/kservices5/useragentstrings/firefox30oncurrent.desktop
-/usr/share/kservices5/useragentstrings/firefox36oncurrent.desktop
-/usr/share/kservices5/useragentstrings/firefox520oncurrent.desktop
-/usr/share/kservices5/useragentstrings/googlebot.desktop
-/usr/share/kservices5/useragentstrings/ie401onwinnt4.desktop
-/usr/share/kservices5/useragentstrings/ie50onppc.desktop
-/usr/share/kservices5/useragentstrings/ie55onwinnt5.desktop
-/usr/share/kservices5/useragentstrings/ie60oncurrent.desktop
-/usr/share/kservices5/useragentstrings/ie60onwinnt51.desktop
-/usr/share/kservices5/useragentstrings/ie70onwinnt51.desktop
-/usr/share/kservices5/useragentstrings/ie80onwinnt60.desktop
-/usr/share/kservices5/useragentstrings/ie90onwinnt71.desktop
-/usr/share/kservices5/useragentstrings/lynxoncurrent.desktop
-/usr/share/kservices5/useragentstrings/nn301oncurrent.desktop
-/usr/share/kservices5/useragentstrings/nn475oncurrent.desktop
-/usr/share/kservices5/useragentstrings/nn475onwin95.desktop
-/usr/share/kservices5/useragentstrings/ns71oncurrent.desktop
-/usr/share/kservices5/useragentstrings/ns71onwinnt51.desktop
-/usr/share/kservices5/useragentstrings/op1162oncurrent.desktop
-/usr/share/kservices5/useragentstrings/op1202oncurrent.desktop
-/usr/share/kservices5/useragentstrings/op403onwinnt4.desktop
-/usr/share/kservices5/useragentstrings/op85oncurrent.desktop
-/usr/share/kservices5/useragentstrings/op90oncurrent.desktop
-/usr/share/kservices5/useragentstrings/op962oncurrent.desktop
-/usr/share/kservices5/useragentstrings/safari20.desktop
-/usr/share/kservices5/useragentstrings/safari30oniphone.desktop
-/usr/share/kservices5/useragentstrings/safari32.desktop
-/usr/share/kservices5/useragentstrings/safari40.desktop
-/usr/share/kservices5/useragentstrings/safari517.desktop
-/usr/share/kservices5/useragentstrings/safari60.desktop
-/usr/share/kservices5/useragentstrings/w3moncurrent.desktop
-/usr/share/kservices5/useragentstrings/wgetoncurrent.desktop
 /usr/share/kservices5/webshortcuts.desktop
 /usr/share/kservicetypes5/kfileitemactionplugin.desktop
 /usr/share/kservicetypes5/kiodndpopupmenuplugin.desktop
@@ -413,7 +369,6 @@ popd
 /usr/share/kservicetypes5/kpropertiesdialogplugin.desktop
 /usr/share/kservicetypes5/kurifilterplugin.desktop
 /usr/share/kservicetypes5/searchprovider.desktop
-/usr/share/kservicetypes5/uasprovider.desktop
 /usr/share/qlogging-categories5/kio.categories
 /usr/share/qlogging-categories5/kio.renamecategories
 /usr/share/xdg/accept-languages.codes
@@ -596,11 +551,13 @@ popd
 /usr/include/KF5/KIOGui/KIO/CommandLauncherJob
 /usr/include/KF5/KIOGui/KIO/FavIconRequestJob
 /usr/include/KF5/KIOGui/KIO/OpenUrlJob
+/usr/include/KF5/KIOGui/KTerminalLauncherJob
 /usr/include/KF5/KIOGui/kio/applicationlauncherjob.h
 /usr/include/KF5/KIOGui/kio/commandlauncherjob.h
 /usr/include/KF5/KIOGui/kio/faviconrequestjob.h
 /usr/include/KF5/KIOGui/kio/openurljob.h
 /usr/include/KF5/KIOGui/kiogui_export.h
+/usr/include/KF5/KIOGui/kterminallauncherjob.h
 /usr/include/KF5/KIOWidgets/KAbstractFileItemActionPlugin
 /usr/include/KF5/KIOWidgets/KAutoMount
 /usr/include/KF5/KIOWidgets/KBuildSycocaProgressDialog
@@ -702,8 +659,6 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
-/usr/share/doc/HTML/ca/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/ca/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/ca/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/ca/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/ca/kcontrol5/netpref/index.cache.bz2
@@ -714,8 +669,6 @@ popd
 /usr/share/doc/HTML/ca/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/ca/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/ca/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/ca/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/ca/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/ca/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/ca/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/ca/kioslave5/data/index.cache.bz2
@@ -736,8 +689,6 @@ popd
 /usr/share/doc/HTML/ca/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/ca/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/ca/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/de/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/de/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/de/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/de/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/de/kcontrol5/netpref/index.cache.bz2
@@ -748,8 +699,6 @@ popd
 /usr/share/doc/HTML/de/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/de/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/de/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/de/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/de/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/de/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/de/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/de/kioslave5/data/index.cache.bz2
@@ -770,8 +719,6 @@ popd
 /usr/share/doc/HTML/de/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/de/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/de/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/en/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/en/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/en/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/en/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/en/kcontrol5/netpref/index.cache.bz2
@@ -782,8 +729,6 @@ popd
 /usr/share/doc/HTML/en/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/en/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/en/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/en/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/en/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/en/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/en/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/en/kioslave5/data/index.cache.bz2
@@ -804,8 +749,6 @@ popd
 /usr/share/doc/HTML/en/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/en/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/en/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/es/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/es/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/es/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/es/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/es/kcontrol5/netpref/index.cache.bz2
@@ -816,8 +759,6 @@ popd
 /usr/share/doc/HTML/es/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/es/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/es/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/es/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/es/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/es/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/es/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/es/kioslave5/data/index.cache.bz2
@@ -854,8 +795,6 @@ popd
 /usr/share/doc/HTML/et/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/et/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/et/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/fr/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/fr/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/fr/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/fr/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/fr/kcontrol5/netpref/index.cache.bz2
@@ -866,8 +805,6 @@ popd
 /usr/share/doc/HTML/fr/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/fr/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/fr/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/fr/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/fr/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/fr/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/fr/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/fr/kioslave5/data/index.cache.bz2
@@ -898,8 +835,6 @@ popd
 /usr/share/doc/HTML/gl/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/gl/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/gl/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/it/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/it/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/it/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/it/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/it/kcontrol5/netpref/index.cache.bz2
@@ -910,8 +845,6 @@ popd
 /usr/share/doc/HTML/it/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/it/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/it/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/it/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/it/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/it/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/it/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/it/kioslave5/data/index.cache.bz2
@@ -934,8 +867,6 @@ popd
 /usr/share/doc/HTML/it/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/nb/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/nb/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/nl/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/nl/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/nl/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/nl/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/nl/kcontrol5/netpref/index.cache.bz2
@@ -946,8 +877,6 @@ popd
 /usr/share/doc/HTML/nl/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/nl/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/nl/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/nl/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/nl/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/nl/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/nl/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/nl/kioslave5/data/index.cache.bz2
@@ -968,8 +897,6 @@ popd
 /usr/share/doc/HTML/nl/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/nl/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/nl/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/pt/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/pt/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/pt/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/pt/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/pt/kcontrol5/netpref/index.cache.bz2
@@ -980,8 +907,6 @@ popd
 /usr/share/doc/HTML/pt/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/pt/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/pt/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/pt/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/pt/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/pt/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/pt/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/pt/kioslave5/data/index.cache.bz2
@@ -1002,8 +927,6 @@ popd
 /usr/share/doc/HTML/pt/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/pt/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/pt/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/pt_BR/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/pt_BR/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/pt_BR/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/pt_BR/kcontrol5/netpref/index.cache.bz2
@@ -1014,8 +937,6 @@ popd
 /usr/share/doc/HTML/pt_BR/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/pt_BR/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/pt_BR/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/pt_BR/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/pt_BR/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/pt_BR/kioslave5/data/index.cache.bz2
@@ -1060,8 +981,6 @@ popd
 /usr/share/doc/HTML/ru/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/ru/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/sr/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/sr/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/sr/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/sr/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/sr/kcontrol5/netpref/index.cache.bz2
@@ -1070,8 +989,6 @@ popd
 /usr/share/doc/HTML/sr/kcontrol5/proxy/index.docbook
 /usr/share/doc/HTML/sr/kcontrol5/smb/index.cache.bz2
 /usr/share/doc/HTML/sr/kcontrol5/smb/index.docbook
-/usr/share/doc/HTML/sr/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/sr/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/sr/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/sr/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/sr/kioslave5/data/index.cache.bz2
@@ -1092,8 +1009,6 @@ popd
 /usr/share/doc/HTML/sr/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/sr/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/sr/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/sr@latin/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/sr@latin/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/sr@latin/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/sr@latin/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/sr@latin/kcontrol5/netpref/index.cache.bz2
@@ -1102,8 +1017,6 @@ popd
 /usr/share/doc/HTML/sr@latin/kcontrol5/proxy/index.docbook
 /usr/share/doc/HTML/sr@latin/kcontrol5/smb/index.cache.bz2
 /usr/share/doc/HTML/sr@latin/kcontrol5/smb/index.docbook
-/usr/share/doc/HTML/sr@latin/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/sr@latin/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/sr@latin/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/sr@latin/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/sr@latin/kioslave5/data/index.cache.bz2
@@ -1124,8 +1037,6 @@ popd
 /usr/share/doc/HTML/sr@latin/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/sr@latin/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/sr@latin/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/sv/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/sv/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/sv/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/sv/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/sv/kcontrol5/netpref/index.cache.bz2
@@ -1136,8 +1047,6 @@ popd
 /usr/share/doc/HTML/sv/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/sv/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/sv/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/sv/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/sv/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/sv/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/sv/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/sv/kioslave5/data/index.cache.bz2
@@ -1158,8 +1067,6 @@ popd
 /usr/share/doc/HTML/sv/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/sv/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/sv/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/uk/kcontrol5/cache/index.cache.bz2
-/usr/share/doc/HTML/uk/kcontrol5/cache/index.docbook
 /usr/share/doc/HTML/uk/kcontrol5/cookies/index.cache.bz2
 /usr/share/doc/HTML/uk/kcontrol5/cookies/index.docbook
 /usr/share/doc/HTML/uk/kcontrol5/netpref/index.cache.bz2
@@ -1170,8 +1077,6 @@ popd
 /usr/share/doc/HTML/uk/kcontrol5/smb/index.docbook
 /usr/share/doc/HTML/uk/kcontrol5/trash/index.cache.bz2
 /usr/share/doc/HTML/uk/kcontrol5/trash/index.docbook
-/usr/share/doc/HTML/uk/kcontrol5/useragent/index.cache.bz2
-/usr/share/doc/HTML/uk/kcontrol5/useragent/index.docbook
 /usr/share/doc/HTML/uk/kcontrol5/webshortcuts/index.cache.bz2
 /usr/share/doc/HTML/uk/kcontrol5/webshortcuts/index.docbook
 /usr/share/doc/HTML/uk/kioslave5/data/index.cache.bz2
@@ -1196,15 +1101,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.82.0
+/usr/lib64/libKF5KIOCore.so.5.83.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.82.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.83.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.82.0
+/usr/lib64/libKF5KIOGui.so.5.83.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.82.0
+/usr/lib64/libKF5KIONTLM.so.5.83.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.82.0
+/usr/lib64/libKF5KIOWidgets.so.5.83.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_kio.so
 /usr/lib64/qt5/plugins/kcm_trash.so
