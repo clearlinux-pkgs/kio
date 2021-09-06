@@ -33,11 +33,12 @@ libQt5Widgets.so.5
 libQt5X11Extras.so.5
 libQt5Xml.so.5
 libacl.so.1
+libblkid.so.1
 libc.so.6
 libexslt.so.0
 libgcc_s.so.1
 libgssapi_krb5.so.2
 libm.so.6
-libresolv.so.2
+libmount.so.1
 libstdc++.so.6
 libxml2.so.2
