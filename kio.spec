@@ -6,7 +6,7 @@
 #
 Name     : kio
 Version  : 5.90.0
-Release  : 52
+Release  : 53
 URL      : https://download.kde.org/stable/frameworks/5.90/kio-5.90.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.90/kio-5.90.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.90/kio-5.90.0.tar.xz.sig
@@ -152,7 +152,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642096161
+export SOURCE_DATE_EPOCH=1643436113
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -168,7 +168,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1642096161
+export SOURCE_DATE_EPOCH=1643436113
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp %{_builddir}/kio-5.90.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
@@ -367,6 +367,8 @@ popd
 /usr/share/kservicetypes5/searchprovider.desktop
 /usr/share/qlogging-categories5/kio.categories
 /usr/share/qlogging-categories5/kio.renamecategories
+/usr/share/xdg/accept-languages.codes
+/usr/share/xdg/kshorturifilterrc
 
 %files dev
 %defattr(-,root,root,-)
