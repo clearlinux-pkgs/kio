@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.97.0
-Release  : 60
-URL      : https://download.kde.org/stable/frameworks/5.97/kio-5.97.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.97/kio-5.97.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.97/kio-5.97.0.tar.xz.sig
+Version  : 5.98.0
+Release  : 61
+URL      : https://download.kde.org/stable/frameworks/5.98/kio-5.98.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.98/kio-5.98.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.98/kio-5.98.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -51,7 +51,6 @@ BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
 BuildRequires : kwindowsystem-dev
 BuildRequires : kxmlgui-dev
-BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : libxml2-dev
 BuildRequires : libxslt
 BuildRequires : libxslt-dev
@@ -141,15 +140,15 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.97.0
-cd %{_builddir}/kio-5.97.0
+%setup -q -n kio-5.98.0
+cd %{_builddir}/kio-5.98.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1660576528
+export SOURCE_DATE_EPOCH=1663002276
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -165,26 +164,26 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1660576528
+export SOURCE_DATE_EPOCH=1663002276
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
-cp %{_builddir}/kio-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/kio-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kio/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kio-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kio/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/kio-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/kio-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/kio-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/kio-%{version}/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kio-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kio-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kio/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kio-%{version}/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
-cp %{_builddir}/kio-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kio-%{version}/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
-cp %{_builddir}/kio-%{version}/templates/kioworker/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kio-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
+cp %{_builddir}/kio-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kio/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
+cp %{_builddir}/kio-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kio/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
+cp %{_builddir}/kio-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/2a638514c87c4923c0570c55822620fad56f2a33 || :
+cp %{_builddir}/kio-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/e712eadfab0d2357c0f50f599ef35ee0d87534cb || :
+cp %{_builddir}/kio-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/6091db0aead0d90182b93d3c0d09ba93d188f907 || :
+cp %{_builddir}/kio-%{version}/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a || :
+cp %{_builddir}/kio-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kio/20079e8f79713dce80ab09774505773c926afa2a || :
+cp %{_builddir}/kio-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kio/3c3d7573e137d48253731c975ecf90d74cfa9efe || :
+cp %{_builddir}/kio-%{version}/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399 || :
+cp %{_builddir}/kio-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kio/757b86330df80f81143d5916b3e92b4bcb1b1890 || :
+cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275 || :
+cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275 || :
+cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32 || :
+cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32 || :
+cp %{_builddir}/kio-%{version}/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3 || :
+cp %{_builddir}/kio-%{version}/templates/kioworker/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399 || :
 pushd clr-build
 %make_install
 popd
@@ -375,7 +374,6 @@ popd
 /usr/share/kservices5/smb.desktop
 /usr/share/kservices5/webshortcuts.desktop
 /usr/share/kservicetypes5/kfileitemactionplugin.desktop
-/usr/share/kservicetypes5/kiodndpopupmenuplugin.desktop
 /usr/share/kservicetypes5/konqpopupmenuplugin.desktop
 /usr/share/kservicetypes5/kpropertiesdialogplugin.desktop
 /usr/share/kservicetypes5/kurifilterplugin.desktop
@@ -438,6 +436,7 @@ popd
 /usr/include/KF5/KIOCore/KIO/TransferJob
 /usr/include/KF5/KIOCore/KIO/UDSEntry
 /usr/include/KF5/KIOCore/KIO/WorkerBase
+/usr/include/KF5/KIOCore/KIO/WorkerFactory
 /usr/include/KF5/KIOCore/KMountPoint
 /usr/include/KF5/KIOCore/KNFSShare
 /usr/include/KF5/KIOCore/KPasswdServerClient
@@ -507,6 +506,7 @@ popd
 /usr/include/KF5/KIOCore/kio/transferjob.h
 /usr/include/KF5/KIOCore/kio/udsentry.h
 /usr/include/KF5/KIOCore/kio/workerbase.h
+/usr/include/KF5/KIOCore/kio/workerfactory.h
 /usr/include/KF5/KIOCore/kiocore_export.h
 /usr/include/KF5/KIOCore/kmountpoint.h
 /usr/include/KF5/KIOCore/knfsshare.h
@@ -568,6 +568,7 @@ popd
 /usr/include/KF5/KIOGui/KIO/FavIconRequestJob
 /usr/include/KF5/KIOGui/KIO/KCoreUrlNavigator
 /usr/include/KF5/KIOGui/KIO/OpenUrlJob
+/usr/include/KF5/KIOGui/KIO/OpenWithHandlerInterface
 /usr/include/KF5/KIOGui/KTerminalLauncherJob
 /usr/include/KF5/KIOGui/kemailclientlauncherjob.h
 /usr/include/KF5/KIOGui/kio/applicationlauncherjob.h
@@ -575,6 +576,7 @@ popd
 /usr/include/KF5/KIOGui/kio/faviconrequestjob.h
 /usr/include/KF5/KIOGui/kio/kcoreurlnavigator.h
 /usr/include/KF5/KIOGui/kio/openurljob.h
+/usr/include/KF5/KIOGui/kio/openwithhandlerinterface.h
 /usr/include/KF5/KIOGui/kiogui_export.h
 /usr/include/KF5/KIOGui/kterminallauncherjob.h
 /usr/include/KF5/KIOWidgets/KAbstractFileItemActionPlugin
@@ -604,6 +606,7 @@ popd
 /usr/include/KF5/KIOWidgets/KIO/ThumbCreator
 /usr/include/KF5/KIOWidgets/KIO/ThumbDevicePixelRatioDependentCreator
 /usr/include/KF5/KIOWidgets/KIO/ThumbSequenceCreator
+/usr/include/KF5/KIOWidgets/KIO/WidgetsAskUserActionHandler
 /usr/include/KF5/KIOWidgets/KOpenWithDialog
 /usr/include/KF5/KIOWidgets/KOverlayIconPlugin
 /usr/include/KF5/KIOWidgets/KPropertiesDialog
@@ -644,6 +647,7 @@ popd
 /usr/include/KF5/KIOWidgets/kio/thumbcreator.h
 /usr/include/KF5/KIOWidgets/kio/thumbdevicepixelratiodependentcreator.h
 /usr/include/KF5/KIOWidgets/kio/thumbsequencecreator.h
+/usr/include/KF5/KIOWidgets/kio/widgetsaskuseractionhandler.h
 /usr/include/KF5/KIOWidgets/kiowidgets_export.h
 /usr/include/KF5/KIOWidgets/kopenwithdialog.h
 /usr/include/KF5/KIOWidgets/koverlayiconplugin.h
@@ -1155,15 +1159,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.97.0
+/usr/lib64/libKF5KIOCore.so.5.98.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.97.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.98.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.97.0
+/usr/lib64/libKF5KIOGui.so.5.98.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.97.0
+/usr/lib64/libKF5KIONTLM.so.5.98.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.97.0
+/usr/lib64/libKF5KIOWidgets.so.5.98.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_proxy.so
 /usr/lib64/qt5/plugins/kcm_trash.so
