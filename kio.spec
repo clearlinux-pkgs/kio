@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.98.0
-Release  : 61
-URL      : https://download.kde.org/stable/frameworks/5.98/kio-5.98.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.98/kio-5.98.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.98/kio-5.98.0.tar.xz.sig
+Version  : 5.99.0
+Release  : 62
+URL      : https://download.kde.org/stable/frameworks/5.99/kio-5.99.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.99/kio-5.99.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.99/kio-5.99.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -140,15 +140,15 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.98.0
-cd %{_builddir}/kio-5.98.0
+%setup -q -n kio-5.99.0
+cd %{_builddir}/kio-5.99.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1663002276
+export SOURCE_DATE_EPOCH=1665434222
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -164,7 +164,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1663002276
+export SOURCE_DATE_EPOCH=1665434222
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp %{_builddir}/kio-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
@@ -219,7 +219,7 @@ popd
 /usr/share/dbus-1/services/org.kde.kpasswdserver.service
 /usr/share/dbus-1/services/org.kde.kssld5.service
 /usr/share/kconf_update/filepicker.upd
-/usr/share/kdevfiletemplates/templates/kioworker.tar.bz2
+/usr/share/kdevappwizard/templates/kioworker.tar.bz2
 /usr/share/kf5/kcookiejar/domain_info
 /usr/share/knotifications5/proxyscout.notifyrc
 /usr/share/kservices5/cookies.desktop
@@ -433,6 +433,7 @@ popd
 /usr/include/KF5/KIOCore/KIO/StatJob
 /usr/include/KF5/KIOCore/KIO/StoredTransferJob
 /usr/include/KF5/KIOCore/KIO/TCPSlaveBase
+/usr/include/KF5/KIOCore/KIO/TCPWorkerBase
 /usr/include/KF5/KIOCore/KIO/TransferJob
 /usr/include/KF5/KIOCore/KIO/UDSEntry
 /usr/include/KF5/KIOCore/KIO/WorkerBase
@@ -503,6 +504,7 @@ popd
 /usr/include/KF5/KIOCore/kio/statjob.h
 /usr/include/KF5/KIOCore/kio/storedtransferjob.h
 /usr/include/KF5/KIOCore/kio/tcpslavebase.h
+/usr/include/KF5/KIOCore/kio/tcpworkerbase.h
 /usr/include/KF5/KIOCore/kio/transferjob.h
 /usr/include/KF5/KIOCore/kio/udsentry.h
 /usr/include/KF5/KIOCore/kio/workerbase.h
@@ -871,6 +873,8 @@ popd
 /usr/share/doc/HTML/fr/kioslave5/help/index.docbook
 /usr/share/doc/HTML/fr/kioslave5/http/index.cache.bz2
 /usr/share/doc/HTML/fr/kioslave5/http/index.docbook
+/usr/share/doc/HTML/fr/kioslave5/mailto/index.cache.bz2
+/usr/share/doc/HTML/fr/kioslave5/mailto/index.docbook
 /usr/share/doc/HTML/fr/kioslave5/telnet/index.cache.bz2
 /usr/share/doc/HTML/fr/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/fr/kioslave5/webdav/index.cache.bz2
@@ -1159,15 +1163,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.98.0
+/usr/lib64/libKF5KIOCore.so.5.99.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.98.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.99.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.98.0
+/usr/lib64/libKF5KIOGui.so.5.99.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.98.0
+/usr/lib64/libKF5KIONTLM.so.5.99.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.98.0
+/usr/lib64/libKF5KIOWidgets.so.5.99.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_proxy.so
 /usr/lib64/qt5/plugins/kcm_trash.so
