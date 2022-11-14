@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.99.0
-Release  : 62
-URL      : https://download.kde.org/stable/frameworks/5.99/kio-5.99.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.99/kio-5.99.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.99/kio-5.99.0.tar.xz.sig
+Version  : 5.100.0
+Release  : 63
+URL      : https://download.kde.org/stable/frameworks/5.100/kio-5.100.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.100/kio-5.100.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.100/kio-5.100.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -140,15 +140,15 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.99.0
-cd %{_builddir}/kio-5.99.0
+%setup -q -n kio-5.100.0
+cd %{_builddir}/kio-5.100.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1665434222
+export SOURCE_DATE_EPOCH=1668450806
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -164,7 +164,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1665434222
+export SOURCE_DATE_EPOCH=1668450806
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp %{_builddir}/kio-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
@@ -184,6 +184,7 @@ cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{build
 cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kio/e458941548e0864907e654fa2e192844ae90fc32 || :
 cp %{_builddir}/kio-%{version}/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3 || :
 cp %{_builddir}/kio-%{version}/templates/kioworker/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399 || :
+cp %{_builddir}/kio-%{version}/tests/messageboxworker/messageboxworker.json.license %{buildroot}/usr/share/package-licenses/kio/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
 pushd clr-build
 %make_install
 popd
@@ -376,7 +377,6 @@ popd
 /usr/share/kservicetypes5/kfileitemactionplugin.desktop
 /usr/share/kservicetypes5/konqpopupmenuplugin.desktop
 /usr/share/kservicetypes5/kpropertiesdialogplugin.desktop
-/usr/share/kservicetypes5/kurifilterplugin.desktop
 /usr/share/kservicetypes5/searchprovider.desktop
 /usr/share/qlogging-categories5/kio.categories
 /usr/share/qlogging-categories5/kio.renamecategories
@@ -571,6 +571,7 @@ popd
 /usr/include/KF5/KIOGui/KIO/KCoreUrlNavigator
 /usr/include/KF5/KIOGui/KIO/OpenUrlJob
 /usr/include/KF5/KIOGui/KIO/OpenWithHandlerInterface
+/usr/include/KF5/KIOGui/KIO/ThumbnailCreator
 /usr/include/KF5/KIOGui/KTerminalLauncherJob
 /usr/include/KF5/KIOGui/kemailclientlauncherjob.h
 /usr/include/KF5/KIOGui/kio/applicationlauncherjob.h
@@ -579,6 +580,7 @@ popd
 /usr/include/KF5/KIOGui/kio/kcoreurlnavigator.h
 /usr/include/KF5/KIOGui/kio/openurljob.h
 /usr/include/KF5/KIOGui/kio/openwithhandlerinterface.h
+/usr/include/KF5/KIOGui/kio/thumbnailcreator.h
 /usr/include/KF5/KIOGui/kiogui_export.h
 /usr/include/KF5/KIOGui/kterminallauncherjob.h
 /usr/include/KF5/KIOWidgets/KAbstractFileItemActionPlugin
@@ -591,6 +593,7 @@ popd
 /usr/include/KF5/KIOWidgets/KFileItemActions
 /usr/include/KF5/KIOWidgets/KFileItemDelegate
 /usr/include/KF5/KIOWidgets/KIO/AccessManager
+/usr/include/KF5/KIOWidgets/KIO/DeleteOrTrashJob
 /usr/include/KF5/KIOWidgets/KIO/DndPopupMenuPlugin
 /usr/include/KF5/KIOWidgets/KIO/DropJob
 /usr/include/KF5/KIOWidgets/KIO/FileUndoManager
@@ -632,6 +635,7 @@ popd
 /usr/include/KF5/KIOWidgets/kfileitemactions.h
 /usr/include/KF5/KIOWidgets/kfileitemdelegate.h
 /usr/include/KF5/KIOWidgets/kio/accessmanager.h
+/usr/include/KF5/KIOWidgets/kio/deleteortrashjob.h
 /usr/include/KF5/KIOWidgets/kio/dndpopupmenuplugin.h
 /usr/include/KF5/KIOWidgets/kio/dropjob.h
 /usr/include/KF5/KIOWidgets/kio/fileundomanager.h
@@ -1163,15 +1167,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.99.0
+/usr/lib64/libKF5KIOCore.so.5.100.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.99.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.100.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.99.0
+/usr/lib64/libKF5KIOGui.so.5.100.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.99.0
+/usr/lib64/libKF5KIONTLM.so.5.100.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.99.0
+/usr/lib64/libKF5KIOWidgets.so.5.100.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_proxy.so
 /usr/lib64/qt5/plugins/kcm_trash.so
@@ -1210,6 +1214,7 @@ popd
 /usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399
 /usr/share/package-licenses/kio/757b86330df80f81143d5916b3e92b4bcb1b1890
 /usr/share/package-licenses/kio/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/kio/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 /usr/share/package-licenses/kio/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/kio/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
 /usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
