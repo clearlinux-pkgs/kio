@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.100.0
-Release  : 63
-URL      : https://download.kde.org/stable/frameworks/5.100/kio-5.100.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.100/kio-5.100.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.100/kio-5.100.0.tar.xz.sig
+Version  : 5.101.0
+Release  : 64
+URL      : https://download.kde.org/stable/frameworks/5.101/kio-5.101.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.101/kio-5.101.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.101/kio-5.101.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -140,15 +140,15 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.100.0
-cd %{_builddir}/kio-5.100.0
+%setup -q -n kio-5.101.0
+cd %{_builddir}/kio-5.101.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1668450806
+export SOURCE_DATE_EPOCH=1671119717
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -164,7 +164,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1668450806
+export SOURCE_DATE_EPOCH=1671119717
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp %{_builddir}/kio-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
@@ -390,6 +390,7 @@ popd
 /usr/include/KF5/KIOCore/KCoreDirLister
 /usr/include/KF5/KIOCore/KDirNotify
 /usr/include/KF5/KIOCore/KDiskFreeSpaceInfo
+/usr/include/KF5/KIOCore/KFileFilter
 /usr/include/KF5/KIOCore/KFileItem
 /usr/include/KF5/KIOCore/KFileItemListProperties
 /usr/include/KF5/KIOCore/KIO/AskUserActionInterface
@@ -407,6 +408,7 @@ popd
 /usr/include/KF5/KIOCore/KIO/FileJob
 /usr/include/KF5/KIOCore/KIO/FileSystemFreeSpaceJob
 /usr/include/KF5/KIOCore/KIO/ForwardingSlaveBase
+/usr/include/KF5/KIOCore/KIO/ForwardingWorkerBase
 /usr/include/KF5/KIOCore/KIO/Global
 /usr/include/KF5/KIOCore/KIO/HostInfo
 /usr/include/KF5/KIOCore/KIO/IdleSlave
@@ -456,6 +458,7 @@ popd
 /usr/include/KF5/KIOCore/kcoredirlister.h
 /usr/include/KF5/KIOCore/kdirnotify.h
 /usr/include/KF5/KIOCore/kdiskfreespaceinfo.h
+/usr/include/KF5/KIOCore/kfilefilter.h
 /usr/include/KF5/KIOCore/kfileitem.h
 /usr/include/KF5/KIOCore/kfileitemlistproperties.h
 /usr/include/KF5/KIOCore/kio/askuseractioninterface.h
@@ -473,9 +476,11 @@ popd
 /usr/include/KF5/KIOCore/kio/filejob.h
 /usr/include/KF5/KIOCore/kio/filesystemfreespacejob.h
 /usr/include/KF5/KIOCore/kio/forwardingslavebase.h
+/usr/include/KF5/KIOCore/kio/forwardingworkerbase.h
 /usr/include/KF5/KIOCore/kio/global.h
 /usr/include/KF5/KIOCore/kio/hostinfo.h
 /usr/include/KF5/KIOCore/kio/http_slave_defaults.h
+/usr/include/KF5/KIOCore/kio/http_worker_defaults.h
 /usr/include/KF5/KIOCore/kio/idleslave.h
 /usr/include/KF5/KIOCore/kio/ioslave_defaults.h
 /usr/include/KF5/KIOCore/kio/ioworker_defaults.h
@@ -564,6 +569,7 @@ popd
 /usr/include/KF5/KIOFileWidgets/krecentdirs.h
 /usr/include/KF5/KIOFileWidgets/kstatusbarofflineindicator.h
 /usr/include/KF5/KIOFileWidgets/kurlnavigator.h
+/usr/include/KF5/KIOGui/KCoreUrlNavigator
 /usr/include/KF5/KIOGui/KEMailClientLauncherJob
 /usr/include/KF5/KIOGui/KIO/ApplicationLauncherJob
 /usr/include/KF5/KIOGui/KIO/CommandLauncherJob
@@ -573,6 +579,7 @@ popd
 /usr/include/KF5/KIOGui/KIO/OpenWithHandlerInterface
 /usr/include/KF5/KIOGui/KIO/ThumbnailCreator
 /usr/include/KF5/KIOGui/KTerminalLauncherJob
+/usr/include/KF5/KIOGui/kcoreurlnavigator.h
 /usr/include/KF5/KIOGui/kemailclientlauncherjob.h
 /usr/include/KF5/KIOGui/kio/applicationlauncherjob.h
 /usr/include/KF5/KIOGui/kio/commandlauncherjob.h
@@ -713,8 +720,6 @@ popd
 /usr/share/doc/HTML/ca/kioslave5/http/index.docbook
 /usr/share/doc/HTML/ca/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/ca/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/ca/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/ca/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/ca/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/ca/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/ca@valencia/kcontrol5/cookies/index.cache.bz2
@@ -743,8 +748,6 @@ popd
 /usr/share/doc/HTML/ca@valencia/kioslave5/http/index.docbook
 /usr/share/doc/HTML/ca@valencia/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/ca@valencia/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/ca@valencia/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/ca@valencia/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/ca@valencia/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/ca@valencia/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/de/kcontrol5/cookies/index.cache.bz2
@@ -773,8 +776,6 @@ popd
 /usr/share/doc/HTML/de/kioslave5/http/index.docbook
 /usr/share/doc/HTML/de/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/de/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/de/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/de/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/de/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/de/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/en/kcontrol5/cookies/index.cache.bz2
@@ -803,8 +804,6 @@ popd
 /usr/share/doc/HTML/en/kioslave5/http/index.docbook
 /usr/share/doc/HTML/en/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/en/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/en/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/en/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/en/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/en/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/es/kcontrol5/cookies/index.cache.bz2
@@ -833,8 +832,6 @@ popd
 /usr/share/doc/HTML/es/kioslave5/http/index.docbook
 /usr/share/doc/HTML/es/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/es/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/es/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/es/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/es/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/es/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/et/kioslave5/data/index.cache.bz2
@@ -849,8 +846,6 @@ popd
 /usr/share/doc/HTML/et/kioslave5/http/index.docbook
 /usr/share/doc/HTML/et/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/et/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/et/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/et/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/et/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/et/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/fr/kcontrol5/cookies/index.cache.bz2
@@ -879,8 +874,6 @@ popd
 /usr/share/doc/HTML/fr/kioslave5/http/index.docbook
 /usr/share/doc/HTML/fr/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/fr/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/fr/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/fr/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/fr/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/fr/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/gl/kioslave5/file/index.cache.bz2
@@ -891,8 +884,6 @@ popd
 /usr/share/doc/HTML/gl/kioslave5/help/index.docbook
 /usr/share/doc/HTML/gl/kioslave5/http/index.cache.bz2
 /usr/share/doc/HTML/gl/kioslave5/http/index.docbook
-/usr/share/doc/HTML/gl/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/gl/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/gl/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/gl/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/it/kcontrol5/cookies/index.cache.bz2
@@ -921,8 +912,6 @@ popd
 /usr/share/doc/HTML/it/kioslave5/http/index.docbook
 /usr/share/doc/HTML/it/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/it/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/it/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/it/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/it/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/it/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/nb/kcontrol5/trash/index.cache.bz2
@@ -953,8 +942,6 @@ popd
 /usr/share/doc/HTML/nl/kioslave5/http/index.docbook
 /usr/share/doc/HTML/nl/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/nl/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/nl/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/nl/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/nl/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/nl/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/pt/kcontrol5/cookies/index.cache.bz2
@@ -983,8 +970,6 @@ popd
 /usr/share/doc/HTML/pt/kioslave5/http/index.docbook
 /usr/share/doc/HTML/pt/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/pt/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/pt/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/pt/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/pt/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/pt/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/pt_BR/kcontrol5/cookies/index.cache.bz2
@@ -1013,8 +998,6 @@ popd
 /usr/share/doc/HTML/pt_BR/kioslave5/http/index.docbook
 /usr/share/doc/HTML/pt_BR/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/pt_BR/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/pt_BR/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/pt_BR/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/ru/kcontrol5/cookies/index.cache.bz2
@@ -1041,8 +1024,6 @@ popd
 /usr/share/doc/HTML/ru/kioslave5/help/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/http/index.cache.bz2
 /usr/share/doc/HTML/ru/kioslave5/http/index.docbook
-/usr/share/doc/HTML/ru/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/ru/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/ru/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/ru/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/sr/kcontrol5/cookies/index.cache.bz2
@@ -1069,8 +1050,6 @@ popd
 /usr/share/doc/HTML/sr/kioslave5/http/index.docbook
 /usr/share/doc/HTML/sr/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/sr/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/sr/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/sr/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/sr/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/sr/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/sr@latin/kcontrol5/cookies/index.cache.bz2
@@ -1097,8 +1076,6 @@ popd
 /usr/share/doc/HTML/sr@latin/kioslave5/http/index.docbook
 /usr/share/doc/HTML/sr@latin/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/sr@latin/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/sr@latin/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/sr@latin/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/sr@latin/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/sr@latin/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/sv/kcontrol5/cookies/index.cache.bz2
@@ -1127,8 +1104,6 @@ popd
 /usr/share/doc/HTML/sv/kioslave5/http/index.docbook
 /usr/share/doc/HTML/sv/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/sv/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/sv/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/sv/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/sv/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/sv/kioslave5/webdav/index.docbook
 /usr/share/doc/HTML/uk/kcontrol5/cookies/index.cache.bz2
@@ -1157,25 +1132,21 @@ popd
 /usr/share/doc/HTML/uk/kioslave5/http/index.docbook
 /usr/share/doc/HTML/uk/kioslave5/mailto/index.cache.bz2
 /usr/share/doc/HTML/uk/kioslave5/mailto/index.docbook
-/usr/share/doc/HTML/uk/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/uk/kioslave5/telnet/index.docbook
 /usr/share/doc/HTML/uk/kioslave5/webdav/index.cache.bz2
 /usr/share/doc/HTML/uk/kioslave5/webdav/index.docbook
-/usr/share/doc/HTML/zh_CN/kioslave5/telnet/index.cache.bz2
-/usr/share/doc/HTML/zh_CN/kioslave5/telnet/index.docbook
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.100.0
+/usr/lib64/libKF5KIOCore.so.5.101.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.100.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.101.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.100.0
+/usr/lib64/libKF5KIOGui.so.5.101.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.100.0
+/usr/lib64/libKF5KIONTLM.so.5.101.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.100.0
+/usr/lib64/libKF5KIOWidgets.so.5.101.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_proxy.so
 /usr/lib64/qt5/plugins/kcm_trash.so
