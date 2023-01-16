@@ -1769,6 +1769,7 @@ libKF5KIOCore.so.5:_ZThn16_N3KIO20ForwardingWorkerBase8mimetypeERK4QUrl
 libKF5KIOCore.so.5:_ZThn16_N3KIO20ForwardingWorkerBaseD0Ev
 libKF5KIOCore.so.5:_ZThn16_N3KIO20ForwardingWorkerBaseD1Ev
 libKF5KIOCore.so.5:_ZeqRKN3KIO8UDSEntryES2_
+libKF5KIOCore.so.5:_Zls6QDebugRK28QExplicitlySharedDataPointerI11KMountPointE
 libKF5KIOCore.so.5:_Zls6QDebugRK9KFileItem
 libKF5KIOCore.so.5:_Zls6QDebugRKN3KIO8UDSEntryE
 libKF5KIOCore.so.5:_ZlsR11QDataStreamRK4KACL
