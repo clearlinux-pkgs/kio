@@ -6,11 +6,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.105.0
-Release  : 70
-URL      : https://download.kde.org/stable/frameworks/5.105/kio-5.105.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.105/kio-5.105.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.105/kio-5.105.0.tar.xz.sig
+Version  : 5.106.0
+Release  : 71
+URL      : https://download.kde.org/stable/frameworks/5.106/kio-5.106.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.106/kio-5.106.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.106/kio-5.106.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -144,31 +144,48 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.105.0
-cd %{_builddir}/kio-5.105.0
+%setup -q -n kio-5.106.0
+cd %{_builddir}/kio-5.106.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681749608
+export SOURCE_DATE_EPOCH=1684857329
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+%cmake ..
+make  %{?_smp_mflags}
+popd
+mkdir -p clr-build-avx2
+pushd clr-build-avx2
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export FCFLAGS="$FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1681749608
+export SOURCE_DATE_EPOCH=1684857329
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp %{_builddir}/kio-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
@@ -189,13 +206,22 @@ cp %{_builddir}/kio-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{build
 cp %{_builddir}/kio-%{version}/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kio/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3 || :
 cp %{_builddir}/kio-%{version}/templates/kioworker/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kio/6f1f675aa5f6a2bbaa573b8343044b166be28399 || :
 cp %{_builddir}/kio-%{version}/tests/messageboxworker/messageboxworker.json.license %{buildroot}/usr/share/package-licenses/kio/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
+pushd clr-build-avx2
+%make_install_v3  || :
+popd
 pushd clr-build
 %make_install
 popd
 %find_lang kio5
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
+/V3/usr/lib64/libexec/kf5/kio_http_cache_cleaner
+/V3/usr/lib64/libexec/kf5/kiod5
+/V3/usr/lib64/libexec/kf5/kioexec
+/V3/usr/lib64/libexec/kf5/kioslave5
+/V3/usr/lib64/libexec/kf5/kpac_dhcp_helper
 /usr/lib64/libexec/kf5/kio_http_cache_cleaner
 /usr/lib64/libexec/kf5/kiod5
 /usr/lib64/libexec/kf5/kioexec
@@ -204,6 +230,10 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/kcookiejar5
+/V3/usr/bin/ktelnetservice5
+/V3/usr/bin/ktrash5
+/V3/usr/bin/protocoltojson
 /usr/bin/kcookiejar5
 /usr/bin/ktelnetservice5
 /usr/bin/ktrash5
@@ -389,6 +419,11 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
+/V3/usr/lib64/libKF5KIOCore.so
+/V3/usr/lib64/libKF5KIOFileWidgets.so
+/V3/usr/lib64/libKF5KIOGui.so
+/V3/usr/lib64/libKF5KIONTLM.so
+/V3/usr/lib64/libKF5KIOWidgets.so
 /usr/include/KF5/KIO/kio_version.h
 /usr/include/KF5/KIOCore/KACL
 /usr/include/KF5/KIOCore/KCoreDirLister
@@ -1119,16 +1154,53 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/libKF5KIOCore.so.5
+/V3/usr/lib64/libKF5KIOCore.so.5.106.0
+/V3/usr/lib64/libKF5KIOFileWidgets.so.5
+/V3/usr/lib64/libKF5KIOFileWidgets.so.5.106.0
+/V3/usr/lib64/libKF5KIOGui.so.5
+/V3/usr/lib64/libKF5KIOGui.so.5.106.0
+/V3/usr/lib64/libKF5KIONTLM.so.5
+/V3/usr/lib64/libKF5KIONTLM.so.5.106.0
+/V3/usr/lib64/libKF5KIOWidgets.so.5
+/V3/usr/lib64/libKF5KIOWidgets.so.5.106.0
+/V3/usr/lib64/qt5/plugins/designer/kio5widgets.so
+/V3/usr/lib64/qt5/plugins/kcm_proxy.so
+/V3/usr/lib64/qt5/plugins/kcm_trash.so
+/V3/usr/lib64/qt5/plugins/kcm_webshortcuts.so
+/V3/usr/lib64/qt5/plugins/kf5/kded/kcookiejar.so
+/V3/usr/lib64/qt5/plugins/kf5/kded/proxyscout.so
+/V3/usr/lib64/qt5/plugins/kf5/kded/remotenotifier.so
+/V3/usr/lib64/qt5/plugins/kf5/kio/kio_file.so
+/V3/usr/lib64/qt5/plugins/kf5/kio/kio_ftp.so
+/V3/usr/lib64/qt5/plugins/kf5/kio/kio_ghelp.so
+/V3/usr/lib64/qt5/plugins/kf5/kio/kio_help.so
+/V3/usr/lib64/qt5/plugins/kf5/kio/kio_http.so
+/V3/usr/lib64/qt5/plugins/kf5/kio/kio_remote.so
+/V3/usr/lib64/qt5/plugins/kf5/kio/kio_trash.so
+/V3/usr/lib64/qt5/plugins/kf5/kiod/kioexecd.so
+/V3/usr/lib64/qt5/plugins/kf5/kiod/kpasswdserver.so
+/V3/usr/lib64/qt5/plugins/kf5/kiod/kssld.so
+/V3/usr/lib64/qt5/plugins/kf5/urifilters/fixhosturifilter.so
+/V3/usr/lib64/qt5/plugins/kf5/urifilters/kshorturifilter.so
+/V3/usr/lib64/qt5/plugins/kf5/urifilters/kuriikwsfilter.so
+/V3/usr/lib64/qt5/plugins/kf5/urifilters/kurisearchfilter.so
+/V3/usr/lib64/qt5/plugins/kf5/urifilters/localdomainurifilter.so
+/V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings/kcm_smb.so
+/V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_cookies.so
+/V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_netpref.so
+/V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_proxy.so
+/V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_webshortcuts.so
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.105.0
+/usr/lib64/libKF5KIOCore.so.5.106.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.105.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.106.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.105.0
+/usr/lib64/libKF5KIOGui.so.5.106.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.105.0
+/usr/lib64/libKF5KIONTLM.so.5.106.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.105.0
+/usr/lib64/libKF5KIOWidgets.so.5.106.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_proxy.so
 /usr/lib64/qt5/plugins/kcm_trash.so
