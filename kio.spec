@@ -7,7 +7,7 @@
 #
 Name     : kio
 Version  : 5.106.0
-Release  : 72
+Release  : 73
 URL      : https://download.kde.org/stable/frameworks/5.106/kio-5.106.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.106/kio-5.106.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.106/kio-5.106.0.tar.xz.sig
@@ -152,7 +152,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684938710
+export SOURCE_DATE_EPOCH=1685581710
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -185,7 +185,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684938710
+export SOURCE_DATE_EPOCH=1685581710
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp %{_builddir}/kio-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
@@ -419,11 +419,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5KIOCore.so
-/V3/usr/lib64/libKF5KIOFileWidgets.so
-/V3/usr/lib64/libKF5KIOGui.so
-/V3/usr/lib64/libKF5KIONTLM.so
-/V3/usr/lib64/libKF5KIOWidgets.so
 /usr/include/KF5/KIO/kio_version.h
 /usr/include/KF5/KIOCore/KACL
 /usr/include/KF5/KIOCore/KCoreDirLister
@@ -1154,15 +1149,10 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5KIOCore.so.5
 /V3/usr/lib64/libKF5KIOCore.so.5.106.0
-/V3/usr/lib64/libKF5KIOFileWidgets.so.5
 /V3/usr/lib64/libKF5KIOFileWidgets.so.5.106.0
-/V3/usr/lib64/libKF5KIOGui.so.5
 /V3/usr/lib64/libKF5KIOGui.so.5.106.0
-/V3/usr/lib64/libKF5KIONTLM.so.5
 /V3/usr/lib64/libKF5KIONTLM.so.5.106.0
-/V3/usr/lib64/libKF5KIOWidgets.so.5
 /V3/usr/lib64/libKF5KIOWidgets.so.5.106.0
 /V3/usr/lib64/qt5/plugins/designer/kio5widgets.so
 /V3/usr/lib64/qt5/plugins/kcm_proxy.so
@@ -1189,8 +1179,6 @@ popd
 /V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings/kcm_smb.so
 /V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_cookies.so
 /V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_netpref.so
-/V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_proxy.so
-/V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_webshortcuts.so
 /usr/lib64/libKF5KIOCore.so.5
 /usr/lib64/libKF5KIOCore.so.5.106.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
