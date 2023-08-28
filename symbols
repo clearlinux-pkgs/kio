@@ -2402,6 +2402,7 @@ libKF5KIOGui.so.5:_ZN3KIO10OpenUrlJobC2ERK4QUrlRK7QStringP7QObject
 libKF5KIOGui.so.5:_ZN3KIO10OpenUrlJobD0Ev
 libKF5KIOGui.so.5:_ZN3KIO10OpenUrlJobD1Ev
 libKF5KIOGui.so.5:_ZN3KIO10OpenUrlJobD2Ev
+libKF5KIOGui.so.5:_ZN3KIO14hasDiscreteGpuEv
 libKF5KIOGui.so.5:_ZN3KIO15ThumbnailResult31setSequenceIndexWraparoundPointEf
 libKF5KIOGui.so.5:_ZN3KIO15ThumbnailResult4failEv
 libKF5KIOGui.so.5:_ZN3KIO15ThumbnailResult4passERK6QImage
