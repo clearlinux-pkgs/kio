@@ -8,11 +8,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kio
-Version  : 5.112.0
-Release  : 80
-URL      : https://download.kde.org/stable/frameworks/5.112/kio-5.112.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.112/kio-5.112.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.112/kio-5.112.0.tar.xz.sig
+Version  : 5.113.0
+Release  : 81
+URL      : https://download.kde.org/stable/frameworks/5.113/kio-5.113.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.113/kio-5.113.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.113/kio-5.113.0.tar.xz.sig
 Summary  : Resource and network access abstraction
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -146,15 +146,15 @@ man components for the kio package.
 
 
 %prep
-%setup -q -n kio-5.112.0
-cd %{_builddir}/kio-5.112.0
+%setup -q -n kio-5.113.0
+cd %{_builddir}/kio-5.113.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701993334
+export SOURCE_DATE_EPOCH=1702999825
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -213,7 +213,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701993334
+export SOURCE_DATE_EPOCH=1702999825
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kio
 cp %{_builddir}/kio-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/kio/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
@@ -684,6 +684,7 @@ popd
 /usr/include/KF5/KIOWidgets/KOpenWithDialog
 /usr/include/KF5/KIOWidgets/KOverlayIconPlugin
 /usr/include/KF5/KIOWidgets/KPropertiesDialog
+/usr/include/KF5/KIOWidgets/KPropertiesDialogPlugin
 /usr/include/KF5/KIOWidgets/KRun
 /usr/include/KF5/KIOWidgets/KShellCompletion
 /usr/include/KF5/KIOWidgets/KSslCertificateBox
@@ -727,6 +728,7 @@ popd
 /usr/include/KF5/KIOWidgets/kopenwithdialog.h
 /usr/include/KF5/KIOWidgets/koverlayiconplugin.h
 /usr/include/KF5/KIOWidgets/kpropertiesdialog.h
+/usr/include/KF5/KIOWidgets/kpropertiesdialogplugin.h
 /usr/include/KF5/KIOWidgets/krun.h
 /usr/include/KF5/KIOWidgets/kshellcompletion.h
 /usr/include/KF5/KIOWidgets/ksslcertificatebox.h
@@ -1177,11 +1179,11 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5KIOCore.so.5.112.0
-/V3/usr/lib64/libKF5KIOFileWidgets.so.5.112.0
-/V3/usr/lib64/libKF5KIOGui.so.5.112.0
-/V3/usr/lib64/libKF5KIONTLM.so.5.112.0
-/V3/usr/lib64/libKF5KIOWidgets.so.5.112.0
+/V3/usr/lib64/libKF5KIOCore.so.5.113.0
+/V3/usr/lib64/libKF5KIOFileWidgets.so.5.113.0
+/V3/usr/lib64/libKF5KIOGui.so.5.113.0
+/V3/usr/lib64/libKF5KIONTLM.so.5.113.0
+/V3/usr/lib64/libKF5KIOWidgets.so.5.113.0
 /V3/usr/lib64/qt5/plugins/designer/kio5widgets.so
 /V3/usr/lib64/qt5/plugins/kcm_proxy.so
 /V3/usr/lib64/qt5/plugins/kcm_trash.so
@@ -1208,15 +1210,15 @@ popd
 /V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_cookies.so
 /V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_netpref.so
 /usr/lib64/libKF5KIOCore.so.5
-/usr/lib64/libKF5KIOCore.so.5.112.0
+/usr/lib64/libKF5KIOCore.so.5.113.0
 /usr/lib64/libKF5KIOFileWidgets.so.5
-/usr/lib64/libKF5KIOFileWidgets.so.5.112.0
+/usr/lib64/libKF5KIOFileWidgets.so.5.113.0
 /usr/lib64/libKF5KIOGui.so.5
-/usr/lib64/libKF5KIOGui.so.5.112.0
+/usr/lib64/libKF5KIOGui.so.5.113.0
 /usr/lib64/libKF5KIONTLM.so.5
-/usr/lib64/libKF5KIONTLM.so.5.112.0
+/usr/lib64/libKF5KIONTLM.so.5.113.0
 /usr/lib64/libKF5KIOWidgets.so.5
-/usr/lib64/libKF5KIOWidgets.so.5.112.0
+/usr/lib64/libKF5KIOWidgets.so.5.113.0
 /usr/lib64/qt5/plugins/designer/kio5widgets.so
 /usr/lib64/qt5/plugins/kcm_proxy.so
 /usr/lib64/qt5/plugins/kcm_trash.so
