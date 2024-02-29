@@ -31,3 +31,6 @@ ruby
 solid-dev
 sonnet-dev
 zlib-dev
+kded-dev
+qt5compat-dev
+util-linux-dev
