@@ -19,6 +19,7 @@ libKF6ItemViews.so.6
 libKF6JobWidgets.so.6
 libKF6Service.so.6
 libKF6Solid.so.6
+libKF6Wallet.so.6
 libKF6WidgetsAddons.so.6
 libKF6WindowSystem.so.6
 libQt6Core.so.6
@@ -33,4 +34,4 @@ libexslt.so.0
 libm.so.6
 libmount.so.1
 libstdc++.so.6
-libxml2.so.2
+libxml2.so.16
